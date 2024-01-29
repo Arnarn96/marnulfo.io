@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Image Gallery</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f7ff; /* Light blue background color */
+            color: #333;
+            overflow: hidden; /* Hide page scrollbars */
+        }
+
+        header {
+            background-color: #66ccff; /* Blue header background color */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 2em; /* Larger font size for the heading */
+            animation: pulse 2s infinite alternate; /* Pulsating animation */
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        main {
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #66ccff; /* Blue color for the title */
+            margin-bottom: 0;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .gallery-image {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #fff; /* Initial background color */
+            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .gallery-image:hover {
+            transform: rotateY(180deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            backface-visibility: hidden; /* Prevents flickering during the flip */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gallery-image .back-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: rotateY(180deg);
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            animation: fadeOut 2s forwards 2s; /* Fading out after 2 seconds delay */
+        }
+
+        .loading-heart {
+            font-size: 4em;
+            color: #ff4d4d; /* Red color for the heart */
+            animation: rotate 2s infinite linear; /* Rotation animation */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .moving-car {
+            font-size: 6em; /* Larger font size for the car */
+            position: absolute;
+            bottom: 0;
+            left: -200px; /* Initial position off-screen */
+            animation: moveCar 5s linear infinite; /* Straight-line car animation */
+        }
+
+        .tree-emoji,
+        .mountain-emoji {
+            font-size: 2em;
+            margin: 0 5px;
+            display: inline-block; /* Display trees and mountain horizontally */
+        }
+
+        @keyframes moveCar {
+            from {
+                transform: translateX(-200%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="loading-heart">❤️</div>
+    </div>
+
+    <header>
+        <h1>Nature Image Gallery</h1>
+    </header>
+
+    <main>
+        <!-- Example Image Gallery -->
+        <div class="gallery-container">
+            <div class="gallery-image">
+                <img src="C:\Users\user\Desktop\asd.jpg" alt="Nature Image 1">
+                <img class="back-image" src="C:\Users\user\Desktop\aaa.jpg" alt="Back Image 1">
+            </div>
+            <div class="gallery-image">
+                <img src="path/to/front-image2.jpg" alt="Nature Image 2">
+                <img class="back-image" src="path/to/back-image2.jpg" alt="Back Image 2">
+            </div>
+            <div class="gallery-image">
+                <img src="path/to/front-image3.jpg" alt="Nature Image 3">
+                <img class="back-image" src="path/to/back-image3.jpg" alt="Back Image 3">
+            </div>
+            <!-- Add more images as needed -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="tree-emoji">🌳</div>
+        <div class="tree-emoji">🌲</div>
+        <div class="tree-emoji">🌳</div>
+        <div class="mountain-emoji">⛰️</div> <!-- Mountain emoji -->
+        <div class="moving-car">🚗</div>
+        <div class="tree-emoji">🌳</div>
+        <div class="tree-emoji">🌲</div>
+        <div class="tree-emoji">🌳</div>
+        Enjoy your journey!
+    </footer>
+
+    <script>
+        // Simulate loading delay
+        setTimeout(function () {
+            // Display the content and hide the loading screen
+            document.querySelector('.loading-screen').style.display = 'none';
+            document.querySelector('main').style.display = 'block';
+        }, 4000); // Adjust the delay time as needed
+    </script>
+</body>
+
+</html>
