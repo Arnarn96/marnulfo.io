@@ -50,8 +50,7 @@
             flex-wrap: wrap;
             margin-top: 20px;
         }
-
-        .gallery-image {
+  .gallery-image {
             position: relative;
             width: 200px;
             height: 200px;
@@ -61,6 +60,7 @@
             cursor: pointer;
             background-color: #fff; /* Initial background color */
             transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+            transform-style: preserve-3d; /* Enable 3D transformations */
         }
 
         .gallery-image:hover {
@@ -85,7 +85,6 @@
             object-fit: cover;
             transform: rotateY(180deg);
         }
-
         .loading-screen {
             position: fixed;
             top: 0;
